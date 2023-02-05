@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图书管理系统</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html,body{
+            height: 100%;
+        }
+
+        body{
+
+            display: flex;
+            background:linear-gradient(to right ,rgb(155, 226, 250) ,rgb(255, 207, 253));
+
+        }
+        /* asdjfkdsjlf  */
+        .box{
+            position: relative;
+            display: flex;
+            width: 600px;
+            height: 400px;
+
+            margin: auto;
+            border: 0.5px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 4px 4px 4px rgba(0, 0, 0, .3);
+            border-radius: 8px;
+
+        }
+
+
+        .register-from,.login-from{
+            height: 100%;
+            width: 50%;
+        }
+
+        .register-tiltie,.login-tiltie{
+            height: 200px;
+            line-height: 280px;
+        }
+        .register-tiltie h1,.login-tiltie h1{
+            text-align: center;
+            /* 字间距 */
+            letter-spacing: 20px;
+            color: white;
+            text-shadow: 3px 3px 4px rgba(0, 0, 0, .3);
+        }
+
+        .register-input,.login-input{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .register-input input{
+            border: 1px solid rgb(155, 226, 250);
+        }
+        .login-input input{
+            border: 1px solid rgb(251, 175, 247);
+        }
+        input{
+            margin-bottom: 10px;
+            width: 55%;
+            height: 25px;
+            border-radius: 5px;
+            /* 清除聚焦边框 */
+            outline: 0;
+            /* 字间距 */
+            text-indent: 8px;
+        }
+        input:focus::placeholder{
+            opacity: 0;
+        }
+        /* 获取聚焦时 */
+        input:focus{
+            color: rgb(102, 126, 139);
+        }
+
+        .register-btn,.login-btn{
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        button{
+            margin: 0 5px;
+            width: 60px;
+            height: 25px;
+            border-radius: 4px;
+            /* 鼠标小手 */
+            cursor:pointer;
+
+            color: white;
+        }
+        .register-btn button{
+            box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgb(155, 226, 250);
+            background-color: rgb(155, 226, 250);
+        }
+        .login-btn button{
+            border: 1px solid  rgb(255, 198, 252);
+            background-color:  rgba(255, 198, 252,.5);
+            box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .register-btn p, .login-btn p{
+            height: 25px;
+            line-height: 25px;
+            font-size: 13px;
+            color: white;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, .4);
+            cursor:pointer;
+        }
+
+        .top-box{
+            transition: 0.5s ease-in-out;
+            position: absolute;
+            height: 100%;
+            width: 50%;
+            /* border: 1px solid rgba(155, 226, 250,.2); */
+            box-shadow: 4px 4px 4px rgba(0, 0, 0, .3);
+            border-radius: 8px;
+            background-color: rgb(155, 226, 250);
+        }
+        .top-tilite{
+            height: 150px;
+            line-height: 200px;
+        }
+        .top-tilite h1,.top-p p{
+            color: white;
+            text-align: center;
+            text-shadow: 3px 3px 4px rgba(0, 0, 0, .3);
+
+        }
+
+        .top-img{
+            margin: 25px auto;
+            height: 100px;
+            width:100px;
+            border: 1px solid rgba(155, 226, 250,.2);
+            border-radius: 50%;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+
+        }
+        .top-img img{
+            transition: 1s;
+            width: 100%;
+
+        }
+
+
+        .active1{
+            transform:translateX(100%);
+            background-color:rgb(227,213,253);
+        }
+        .active2{
+            transform:translateX(0);
+            background-color:rgb(183,221,251);
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <!-- 盖住的盒子 -->
+    <div class="top-box">
+        <div class="top-tilite">
+            <h1>welcome</h1>
+        </div>
+        <div class="top-p">
+            <p>LAST YEAR</p>
+        </div>
+        <div class="top-img">
+            <img src="./img/01.jpg" alt="">
+        </div>
+    </div>
+
+    <!-- 注册界面 -->
+    <div class="register-from">
+        <div class="register-tiltie"> <h1>注册</h2></div>
+
+        <div class="register-input">
+            <input type="text" placeholder="用户名">
+            <input type="password" placeholder="密码">
+            <input type="password" placeholder="确认密码">
+        </div>
+        <div class="register-btn">
+            <button>注册</button>
+            <p onclick="myGuoDu()">有账号?去登录</p>
+        </div>
+    </div>
+    <!-- 登录界面 -->
+    <div class="login-from">
+        <div class="login-tiltie"><h1>登录</h2></div>
+        <div class="login-input">
+
+            <input type="text" placeholder="用户名">
+            <input type="password" placeholder="密码">
+
+        </div>
+        <div class="login-btn">
+            <button>登录</button>
+            <p onclick="myGuoDu()">没有账号?去注册</p>
+        </div>
+    </div>
+
+
+</div>
+<script src="./js/axios.js"></script>
+<script src="./js/login.js"></script>
+
+</body>
+</html>
